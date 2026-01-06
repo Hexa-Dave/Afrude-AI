@@ -2,36 +2,148 @@ import React, { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { ArrowRight } from 'lucide-react';
 
+
+const caseStudies = [
+  {
+    title: "Learning and Building AI from Local Realities in Ghana",
+    text: (
+      <>
+        In a public high school in Accra, students are introduced to Artificial
+        Intelligence using examples drawn directly from their daily lives—local
+        markets, traffic congestion, sanitation systems, and small-scale farming.
+        Through <span className="text-orange-500 font-semibold">Afrude AI</span>,
+        learners collect and curate datasets from their communities, communicate
+        AI concepts using familiar language and cultural references, and train
+        models collaboratively. Students build simple prediction systems for crop
+        yield and waste management, learning not only what AI is, but how locally
+        trained models—grounded in Ghanaian data—can outperform generic solutions
+        when applied in nearby contexts.
+      </>
+    ),
+  },
+  {
+    title: "Smart Agriculture and Local Model Training in Northern Nigeria",
+    text: (
+      <>
+        In Northern Nigeria, where farming is central to daily life, students use
+        <span className="text-orange-500 font-semibold"> Afrude AI</span> to learn AI
+        through real agricultural challenges faced by their families and
+        communities. Learners gather rainfall data, soil conditions, and crop
+        disease observations from local farms, then collaboratively train machine
+        learning models to predict planting outcomes and disease risks. By working
+        with data they understand and trust, students gain the skills to build AI
+        systems that are locally accurate, interpretable, and immediately useful
+        to nearby farmers.
+      </>
+    ),
+  },
+  {
+    title: "Border Trade and Fraud Detection Education in East Africa",
+    text: (
+      <>
+        Students in border-region schools explore AI through real-world scenarios
+        such as shipment verification, customs fraud, and informal trade routes.
+        Using <span className="text-orange-500 font-semibold">Afrude AI</span>,
+        learners simulate how AI models can analyze transaction patterns, cargo
+        descriptions, and movement data to flag suspicious exchanges. By training
+        models on locally sourced and anonymized datasets, students understand how
+        AI can support border control and trade transparency while respecting
+        privacy. The experience shows how AI can be applied directly to security
+        and economic challenges in their immediate environment.
+      </>
+    ),
+  },
+  {
+    title: "Urban Safety and Crime Pattern Analysis in Nairobi",
+    text: (
+      <>
+        In Nairobi, high school students learn AI by examining urban safety
+        challenges they recognize—such as theft hotspots, transport-related crime,
+        and emergency response delays. Through <span className="text-orange-500 font-semibold">Afrude AI</span>,
+        learners work with localized incident reports and mobility data to train
+        models that identify risk patterns and suggest preventive measures.
+        Students see how AI, when trained on local data and informed by lived
+        experience, can support safer cities and more responsive public services.
+      </>
+    ),
+  },
+  {
+    title: "Community Health and Privacy-Aware AI in Rural Kenya",
+    text: (
+      <>
+        In rural Kenyan schools, students explore AI through community health and
+        sanitation challenges they encounter daily. Using <span className="text-orange-500 font-semibold">Afrude AI</span>,
+        learners analyze locally relevant health indicators—such as water access
+        and disease occurrence—while applying federated learning to keep sensitive
+        data within communities. This approach helps students understand how AI can
+        generate meaningful insights without centralizing or exposing personal
+        information, reinforcing trust and ethical awareness alongside technical
+        skills.
+      </>
+    ),
+  },
+  {
+    title: "Climate Adaptation and Local Intelligence in Senegal",
+    text: (
+      <>
+        In Senegal, students learn AI by working with climate data that reflects
+        droughts, flooding, and seasonal shifts affecting their regions. Through
+        <span className="text-orange-500 font-semibold"> Afrude AI</span>, learners
+        train predictive models that support local decision-making for farming and
+        resource management. By grounding AI education in environmental realities
+        they experience firsthand, students understand how locally trained models
+        can support climate resilience more effectively than imported, generic
+        systems.
+      </>
+    ),
+  },
+];
+
+
 const DeepAnalysisSection = () => {
+
+    const [caseIndex, setCaseIndex] = useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCaseIndex((prev) => (prev + 1) % caseStudies.length);
+    }, 10000); // 10 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+                
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="deep-analysis" className="bg-gray-50">
+      <div className="bg-white max-w-7xl mx-auto px-20 py-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-black mb-4">
-            Deep Analysis & Enterprise Applications
+
+
+          <h2 className="text-5xl font-bold text-black mb-4">
+            Deep Analysis & Research Pillars
           </h2>
           <p className="text-gray-600 text-lg max-w-4xl mx-auto">
-            Select a topic to dive deeper, then explore the specific findings from the research, rebuilt as interactive, enterprise-focused modules.
+            Select a topic to dive deeper, then explore the specific objectives for the research, rebuilt as 
+            interactive, inclusive and participatory AI Education centered modules.
           </p>
         </div>
 
         <Tabs defaultValue="cultural" className="w-full">
-          <TabsList className="flex justify-center mb-12 bg-transparent space-x-4">
+          <TabsList className="flex justify-center bg-transparent space-x-4">
             <TabsTrigger 
               value="cultural" 
-              className="px-6 py-2 rounded-full border-2 border-orange-500 text-orange-500 data-[state=active]:bg-orange-500 data-[state=active]:text-white hover:bg-orange-50 transition-all"
+              className="px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-orange-50 hover:border-orange-300 data-[state=active]:bg-orange-500 data-[state=active]:border-orange-500 data-[state=active]:text-white transition-all"
             >
               Culturally-Infused AI Learning
             </TabsTrigger>
             <TabsTrigger 
               value="gamified"
-              className="px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 data-[state=active]:bg-orange-500 data-[state=active]:text-white data-[state=active]:border-orange-500 hover:bg-gray-100 transition-all"
+              className="px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-orange-50 hover:border-orange-300 data-[state=active]:bg-orange-500 data-[state=active]:border-orange-500 data-[state=active]:text-white transition-all"
             >
               Gamified Engagement
             </TabsTrigger>
             <TabsTrigger 
               value="collaborative"
-              className="px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 data-[state=active]:bg-orange-500 data-[state=active]:text-white data-[state=active]:border-orange-500 hover:bg-gray-100 transition-all"
+              className="px-6 py-2 rounded-full border-2 border-gray-300 text-gray-600 hover:bg-orange-50 hover:border-orange-300 data-[state=active]:bg-orange-500 data-[state=active]:border-orange-500 data-[state=active]:text-white transition-all"
             >
               Collaborative AI Development
             </TabsTrigger>
@@ -43,44 +155,54 @@ const DeepAnalysisSection = () => {
                 Contextualized AI for African Learners
               </h3>
               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                The research emphasizes the critical need for AI education that reflects the unique cultural, linguistic, and infrastructural realities of learners in underrepresented regions. Building on AfriML's success, Afrude AI extends this approach, ensuring AI concepts are presented in a familiar and relevant context, significantly boosting engagement and comprehension.
+                The research emphasizes the critical need for AI education that reflects the unique cultural, 
+                linguistic, and infrastructural realities of learners in underrepresented regions. 
+                Building on AfriML's insights, Afrude AI extends this approach, ensuring AI concepts are 
+                presented in a familiar and relevant context, significantly boosting engagement and comprehension.
               </p>
               <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
                 <p className="font-semibold text-black mb-2">Key Takeaway:</p>
                 <p className="text-gray-700">
-                  Culturally-grounded AI platforms like AfriML and Afrude AI dramatically improve learning outcomes by making abstract concepts relatable and relevant to students' lived experiences.
+                  Culturally-grounded AI platforms like AfriML and Afrude AI can dramatically 
+                  improve learning outcomes by making abstract concepts relatable and relevant to students' 
+                  lived experiences.
                 </p>
               </div>
             </div>
 
-            <div className="bg-white rounded-xl p-8 md:p-12">
-              <h3 className="text-3xl font-bold text-black mb-8 text-center">
-                Enterprise Process Flow: Research Methodology
+            <div className="bg-white px-20">
+              <h3 className="text-4xl font-bold text-black mb-8 text-center">
+                Research Process Flow
               </h3>
               <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
                 <div className="flex-1 bg-gray-50 rounded-lg p-6 text-center">
-                  <h4 className="font-semibold text-black mb-2">Exploration & Design Phase</h4>
+                  <h4 className="text-sm font-semibold text-black mb-2">Exploration & Design Phase</h4>
                 </div>
                 <div className="hidden md:block">
                   <ArrowRight className="text-gray-400" size={32} />
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-lg p-6 text-center">
-                  <h4 className="font-semibold text-black mb-2">Development & Iterative Testing Phase</h4>
+                  <h4 className="text-sm font-semibold text-black mb-2">Development & Iterative Testing Phase</h4>
                 </div>
                 <div className="hidden md:block">
                   <ArrowRight className="text-gray-400" size={32} />
                 </div>
                 <div className="flex-1 bg-gray-50 rounded-lg p-6 text-center">
-                  <h4 className="font-semibold text-black mb-2">Evaluation & Refinement Phase</h4>
+                  <h4 className="text-sm font-semibold text-black mb-2">Evaluation & Refinement Phase</h4>
                 </div>
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 md:p-12 border-l-4 border-orange-500">
-              <h3 className="text-3xl font-bold text-black mb-4">AfriML's Legacy</h3>
-              <p className="text-gray-700 text-lg">
-                Proven success in enhanced learner engagement and comprehension through culturally contextualized AI education, validating the core approach.
-              </p>
+            <div className="px-20">
+              <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 md:p-12 border-l-4 border-orange-500">
+                <h3 className="text-6xl font-bold text-black mb-4">AfriML's Legacy</h3>
+                <p className="text-gray-700 text-lg">
+                    Validated previous research on enhanced learner engagement by demonstrating the impact of culturally contextualized 
+                    AI education. Its insights serve as a definitive case study, proving that when AI curricula are
+                    adapted to the African context, both student participation and academic comprehension significantly
+                    increase.
+                </p>
+              </div>
             </div>
 
             <div className="bg-white rounded-xl p-8 md:p-12 overflow-x-auto">
@@ -127,14 +249,32 @@ const DeepAnalysisSection = () => {
               </table>
             </div>
 
-            <div className="bg-black rounded-xl p-8 md:p-12 text-white">
-              <h3 className="text-3xl font-bold mb-6">
-                Case Study: Empowering Tomorrow's Innovators in Ghana
+            <div className="bg-black rounded-xl p-8 md:p-12 text-white relative overflow-hidden">
+              <h3 className="text-3xl font-bold mb-6 transition-opacity duration-500">
+                Case Study: {caseStudies[caseIndex].title}
               </h3>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Imagine a high school in Accra, Ghana, where students learn AI not just from abstract Western examples, but from datasets reflecting local agriculture, traffic patterns, and community health challenges. With <span className="text-orange-500 font-semibold">Afrude AI</span>, students collaboratively train models using federated learning to predict crop yields based on local weather data, or analyze sanitation needs in their community, all while protecting sensitive data. Gamified challenges encourage participation, turning complex problem-solving into an exciting competition. The school contributes its anonymized, culturally-relevant data to a sharing hub, fostering a virtuous cycle of learning and innovation across the continent. This is the future <span className="text-orange-500 font-semibold">Afrude AI</span> aims to create: an ecosystem where African students are not just consumers of AI, but empowered creators shaping solutions for their own communities.
+
+              <p className="text-gray-300 text-lg leading-relaxed transition-opacity duration-500">
+                {caseStudies[caseIndex].text}
               </p>
+
+              {/* Indicators */}
+              <div className="flex justify-center mt-8 space-x-3">
+                {caseStudies.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCaseIndex(i)}
+                    className={`h-2 w-2 rounded-full transition-all ${
+                      i === caseIndex
+                        ? "bg-orange-500 scale-125"
+                        : "bg-gray-500 hover:bg-gray-400"
+                    }`}
+                    aria-label={`Go to case study ${i + 1}`}
+                  />
+                ))}
+              </div>
             </div>
+
           </TabsContent>
 
           <TabsContent value="gamified" className="space-y-8">

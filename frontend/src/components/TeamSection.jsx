@@ -1,3 +1,5 @@
+{/* 
+
 import React, { useState, useEffect } from 'react';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Input } from './ui/input';
@@ -100,3 +102,92 @@ const CalculatorSection = () => {
 };
 
 export default CalculatorSection;
+
+*/}
+
+
+
+import React from "react";
+import LinkedinIcon from "../assets/Linkedin_Icon.png";
+import ORCIDicon from "../assets/ORCID_iD.png";
+import OutlookIcon from "../assets/Microsoft_Office_Outlook_(2018–2024).png";
+
+const teamMembers = [
+  {
+    name: "Okafor David Odafe",
+    role: "Primary Researcher & Developer",
+    bio: "PhD researcher and developer leading the design and implementation of Afrude-AI, with a focus on gamified, collaborative, and culturally grounded AI learning systems.",
+  },
+  {
+    name: "Sanusi Ismaila Temitayo",
+    role: "Research Supervisor",
+    bio: "Academic researcher providing conceptual guidance and supervision in culturally responsive computing and AI education.",
+  },
+  {
+    name: "Solomon Sunday Oyelere",
+    role: "Academic Research Supervisor",
+    bio: "Professor and researcher specializing in technology-enhanced learning, contributing foundational ideas and academic oversight to the project.",
+  },
+];
+
+const TeamSection = () => {
+  return (
+    <section id="our-team" className="bg-gray-50">
+      <div className="bg-white max-w-7xl mx-auto py-20 px-20">
+        {/* Header */}
+        <div className="mb-16">
+          <h2 className="text-5xl font-bold text-black mb-4">
+            Our Team
+          </h2>
+          {/*<p className="text-gray-600 max-w-xl">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>*/}
+        </div>
+
+        {/* Team Grid */}
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
+          {teamMembers.map((member, index) => (
+            <div key={index}>
+              {/* Image Placeholder */}
+              <div className="bg-gray-200 aspect-square mb-6 flex items-center justify-center">
+                <svg
+                  className="w-12 h-12 text-gray-400"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 16.5V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25V16.5M3 16.5l4.72-4.72a2.25 2.25 0 013.18 0l2.22 2.22a2.25 2.25 0 003.18 0L21 9.75M3 16.5V18.75A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5"
+                  />
+                </svg>
+              </div>
+
+              {/* Text */}
+              <h3 className="text-lg font-semibold text-black">
+                {member.name}
+              </h3>
+              <p className="text-gray-600 mb-3">
+                {member.role}
+              </p>
+              <p className="text-gray-600 text-sm mb-4">
+                {member.bio}
+              </p>
+
+              {/* Social Icons */}
+              <div className="flex items-center space-x-4 text-black">
+                <img src={LinkedinIcon} alt="Linkedin Logo"  className="w-5 h-5 cursor-pointer hover:opacity-70" />
+                <img src={ORCIDicon} alt="ORCID Logo" className="w-5 h-5 cursor-pointer hover:opacity-70" />
+                <img src={OutlookIcon} alt="Outlook Logo" className="w-5 h-5 cursor-pointer hover:opacity-70" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TeamSection;

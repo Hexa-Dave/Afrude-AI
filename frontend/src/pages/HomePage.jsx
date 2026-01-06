@@ -3,9 +3,9 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import MetricsSection from '../components/MetricsSection';
 import DeepAnalysisSection from '../components/DeepAnalysisSection';
-import CalculatorSection from '../components/CalculatorSection';
+import TeamSection from '../components/TeamSection';
 import RoadmapSection from '../components/RoadmapSection';
-import CTASection from '../components/CTASection';
+import FAQSection from '../components/FAQSection';
 import CalendarSection from '../components/CalendarSection';
 import Footer from '../components/Footer';
 
@@ -16,10 +16,10 @@ const HomePage = () => {
       <HeroSection />
       <MetricsSection />
       <DeepAnalysisSection />
-      <CalculatorSection />
       <RoadmapSection />
-      <CTASection />
-      <CalendarSection />
+      <TeamSection />
+      <FAQSection />
+      {/*<CalendarSection />*/}
       <Footer />
     </div>
   );

@@ -14,10 +14,10 @@ const MetricsSection = () => {
     const interval = duration / steps;
 
     const targets = {
-      engagement: 22,
-      collaboration: 1,
-      cultural: 58,
-      schools: 65
+      engagement: 21,
+      collaboration: 3,
+      cultural: 90,
+      schools: 12
     };
 
     let step = 0;
@@ -40,10 +40,10 @@ const MetricsSection = () => {
   }, []);
 
   return (
-    <section className="bg-black py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="driving-impact" className="bg-gray-50">
+      <div className="bg-black max-w-7xl mx-auto px-20 py-20">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-5xl font-bold text-white mb-4">
             Driving Impact: Key AI Education Metrics
           </h2>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto">
